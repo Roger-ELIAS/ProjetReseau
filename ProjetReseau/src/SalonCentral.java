@@ -3,10 +3,10 @@ import java.net.ServerSocket;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-public class Server {
+public class SalonCentral {
     private int port;
 
-    public Server(int port) {
+    public SalonCentral(int port) {
         this.port = port;
     }
 
