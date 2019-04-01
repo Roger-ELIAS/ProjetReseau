@@ -22,13 +22,22 @@ public class ClavardamuCentral {
             ServerSocket server = new ServerSocket(port);
             server.setReuseAddress(true);
             ExecutorService pool = Executors.newCachedThreadPool();
+            int i = 0;
             while(true){
                 ArrayBlockingQueue<String> queue = new ArrayBlockingQueue<String>(100);
-                pool.execute(new Consommateur(new ArrayBlockingQueue<String>(100),server.accept()));
-                pool.execute(new Producteur());
+                Socket socket = server.accept();
+                this.queueList.add(queue);
+                pool.execute(new Consommateur(queue,socket));
+                pool.execute(new Producteur(this.queueList, i, socket));
+                ++i;
+
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public ArrayList<ArrayBlockingQueue<String>> getQueueList() {
+        return queueList;
     }
 }

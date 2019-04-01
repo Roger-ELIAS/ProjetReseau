@@ -16,7 +16,7 @@ public class OutputHandler implements Runnable {
                 Scanner sc = new Scanner(System.in);
                 String message;
                 message = sc.nextLine();
-                message += "\n";
+                message = "MSG " + message + "\n";
                 client.getOutputStream().write(message.getBytes());
             }
         }catch(IOException e ) {

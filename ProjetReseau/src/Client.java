@@ -12,7 +12,7 @@ public class Client {
             System.out.println("Saisir un pseudo à l'aide de la commande CONNECT pseudo");
 
             message = sc.nextLine();
-            message += "\n";
+            message = "CONNECT " + message + "\n";
 
             client.getOutputStream().write(message.getBytes());
 

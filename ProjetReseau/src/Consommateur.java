@@ -15,10 +15,15 @@ public class Consommateur implements Runnable {
     @Override
     public void run() {
         String message;
-        while((message = queue.poll())!=null){
+        while(true){
             try {
+                message = queue.take();
+                if(client.isClosed())
+                    break;
                 this.client.getOutputStream().write(message.getBytes());
             } catch (IOException e) {
+                e.printStackTrace();
+            } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         }
