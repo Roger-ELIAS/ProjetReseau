@@ -9,12 +9,11 @@ import java.util.concurrent.Executors;
 public class ClavardamuCentral {
     private int port;
     private ArrayList<ArrayBlockingQueue<String>> queueList;
-    private ArrayList<Socket> socketList;
+
 
     public ClavardamuCentral(int port) {
         this.port = port;
         this.queueList = new ArrayList<ArrayBlockingQueue<String>>();
-        this.socketList = new ArrayList<>();
     }
 
     public void startServer(){
