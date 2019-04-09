@@ -5,7 +5,7 @@ import java.net.Socket;
 import java.util.ArrayList;
 import java.util.concurrent.ArrayBlockingQueue;
 
-public class Producteur implements Runnable{
+public class  Producteur implements Runnable{
 
     private ArrayList<ArrayBlockingQueue<String>> queueList;
     private int position;
